@@ -11,6 +11,11 @@ app.use(cors({
 
 const PORT = 8001;
 
+app.post("/events", (req,res) => {
+  console.log(`We recieved ${req.body.type}`);
+  return res.status(200).json({});
+})
+
 app.use("/api/v1/snippets", snippetRoute);
 
 app.listen(PORT, () => {
