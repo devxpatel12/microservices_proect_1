@@ -32,7 +32,7 @@ let snippetsPromise;
 
 function fetchSnippets() {
   if (!snippetsPromise) {
-    snippetsPromise = fetch("http://localhost:8001/api/v1/snippets").then(
+    snippetsPromise = fetch("http://localhost:8003/snippets").then(
       (res) => res.json()
     );
   }
@@ -87,7 +87,7 @@ const SnippetsSuspense = () => {
       {Object.values(snippets).map((snippet, index) => (
         <div key={index} className="p-2 border rounded">
           <h1 className="font-bold text-xl mb-4">{snippet.title}</h1>
-          <CreateComment snippetId = {snippet.id}/>
+          <CreateComment snippet={snippet}/>
         </div>
       ))}
     </>
